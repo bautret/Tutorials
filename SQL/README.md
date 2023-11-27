@@ -7,23 +7,23 @@ Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQL
 
 ## SELECT
 
-SELECT *
-FROM table
+###SELECT * <br />
+###FROM table
 
 1. You always want to start a **SQL QUERY** with **SELECT** then the symbol * means **ALL**.
 2. You need to get the data from a **TABLE**.
 
-SELECT column_1, column_2,
-FROM table
+### SELECT column_1, column_2 <br />
+### FROM table
 
 You don't have to select everything. You can choose the columns that are interesting to you.
 
-SELECT column_1, column_2,
-FROM table
-WHERE name = xxx
+### SELECT column_1, column_2 <br />
+### FROM table <br />
+### WHERE name = xxx
 
 You can filter the data by using **WHERE** and add the sign **=**
-- If it is a string, you need to use brackets (e.g.: WHERE country = 'France').
+- If it is a string, use brackets (e.g.: WHERE country = 'France').
 - If it is an integer, you don't need to use brackets (e.g.: WHERE year = 1995).
 
 
