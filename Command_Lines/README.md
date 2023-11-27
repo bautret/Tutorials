@@ -15,7 +15,7 @@ Command Line  | Use for
 **pwd**       | display the current repository name
 **ls**        | display the content of the repository
 **ls -a**     | display the content of the repository with hidden files
-**ls l**     | display the content of the repository with additional informations
+**ls -l**     | display the content of the repository with additional informations
 **cd**        | navigate inside a repository
 **cd ..**     | move to the previous repository
 **mkdir**     | create a directory
