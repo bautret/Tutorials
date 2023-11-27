@@ -21,7 +21,7 @@ SELECT column_1,
 FROM table
 ```
 
-You don't have to select everything. You can choose the columns that are interesting to you.
+You don't have to select everything. You can choose the columns that are interesting to you. Each column is separated by a comma, except the last one. You don't have to go to the following line for each new element, but it adds to readability.
 
 ```sql
 SELECT column_1, 
