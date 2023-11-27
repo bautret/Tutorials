@@ -8,7 +8,7 @@ To run command lines you need to use the terminal. The terminal is used to:
 - Create, delete and move directories and files.
 - Launch programs.
 
-## BASIC COMMAND LINES
+---
 
 Command Line  | Use for
 ------------- | -------------
