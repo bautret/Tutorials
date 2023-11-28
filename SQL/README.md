@@ -43,9 +43,39 @@ When you want to filter with several **INPUTS** you use **IN** followed by paren
 ```sql
 WHERE number >= 2000
 ```
+|Signs          | What for              |
+| ------------- | --------------------- |
+| >             | Greater than          |
+| >=            | Greater than or equal |
+| <             | Less than             |
+| >=            | Less than or equal    |
 
-You can also use the signs: **>** ; **>=** ; **<** ; **<=** for greater ; greater or equal ; less than ; less than or equal
+```sql
+SELECT name,
+  population/1000000
+FROM world
+```
+You can divide/multiply a column by a number (if the column is containing integers)
 
+```sql
+SELECT name,
+  GDP/population AS GDP_per_capita
+FROM world
+```
+- You can divide/multiply a column by another column.
+- You can rename a column by using **AS** and then the new_name.
 
+```sql
+SELECT name,
+FROM world
+WHERE name LIKE '%United%'
+```
+If you want to include part of a string in your filter you can use **%**.
+
+|% position     | What for                                |
+| ------------- | --------------------------------------- |
+| %text%        | Look if the string contains the text    |
+| %text         | Look if the string starts with the text |
+| text%         | Look id the string ends with the text   |
 
 
