@@ -101,3 +101,11 @@ WHERE (area > 30000000 | population > 25000000) &
       (area < 30000000 & population < 25000000)
 ```
 You can use several operators together.
+
+```sql
+WHERE year BETWEEN 2000 AND 2005
+```
+To specify a range (of dates, quantity etc.) you can use **BETWEEN** number_1 **AND** number_2.
+
+
+reprendre à ORDER BY (SELECT FROM NOBEL - 13) 
