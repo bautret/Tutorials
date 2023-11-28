@@ -70,12 +70,12 @@ SELECT name,
 FROM world
 WHERE name LIKE '%United%'
 ```
-If you want to include part of a string in your filter you can use **%**.
+If you want to include part of a string in your filter, you can use **%**.
 
 |% position     | What for                                |
 | ------------- | --------------------------------------- |
 | %text%        | Look if the string contains the text    |
 | %text         | Look if the string starts with the text |
-| text%         | Look id the string ends with the text   |
+| text%         | Look if the string ends with the text   |
 
 
