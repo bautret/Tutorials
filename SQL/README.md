@@ -2,7 +2,7 @@
 
 From SQLZOO, we can learn the basics of performing SQL queries.
 
-Here is the **[website](https://sqlzoo.net/wiki/SQL_Tutorial)** to review the exercises.
+Here is the **[website](https://].net/wiki/SQL_Tutorial)** to review the exercises.
 Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQLZOO)** *(I'd recommend to try by yourself first)*
 
 ## SELECT
@@ -78,4 +78,26 @@ If you want to include part of a string in your filter, you can use **%**.
 | %text         | Look if the string starts with the text |
 | text%         | Look if the string ends with the text   |
 
+```sql
+SELECT name,
+  area
+FROM world
+WHERE area > 3000000 OR population > 250000000
+```
+You can use operators in your filter (WHERE).
 
+|OPERATOR       | What for                                      |
+| ------------- | --------------------------------------------- |
+| AND           | Need an addition of two or more elements      |
+| OR            | Filter works with one or the other element(s) |     
+| NOT           | Exclude certain element(s)                    |
+
+```sql
+SELECT name,
+  population,
+  area
+FROM world
+WHERE (area > 30000000 | population > 25000000) &
+      (area < 30000000 & population < 25000000)
+```
+You can use several operators together.
