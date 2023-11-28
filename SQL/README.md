@@ -34,4 +34,18 @@ You can filter the data by using **WHERE** and add the sign **=**
 - If it is a string, use brackets (e.g.: WHERE country = 'France').
 - If it is an integer, you don't need to use brackets (e.g.: WHERE year = 1995).
 
+```sql
+WHERE name IN ('Sweden', 'Norway', 'Denmark')
+```
+
+When you want to filter with several **INPUTS** you use **IN** followed by parentheses and a comma to differentiate each element.
+
+```sql
+WHERE number >= 2000
+```
+
+You can also use the signs: **>** ; **>=** ; **<** ; **<=** for greater ; greater or equal ; less than ; less than or equal
+
+
+
 
