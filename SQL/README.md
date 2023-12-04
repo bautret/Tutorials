@@ -165,6 +165,39 @@ FROM world
 ```
 You can use **COUNT** to **COUNT** the values of a column.
 
+```sql
+SELECT DISTINCT(Country)
+FROM world
+```
+**DISTINCT** will remove the duplicates. In this case the country name will appear only once, without the distinct, it will retrieve all rows from the column Country.
+
+```sql
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+```
+The **GROUP BY** is mandatory when you use an aggregate function such as **SUM** or **COUNT**.
+
+```sql
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+```
+
+Using **CASE WHEN** allow you to categorize the values. 
+The format is the following:
+
+CASE
+  WHEN condition1 THEN result 1
+  WHEN condition2 THEN result 2
+  ...
+  ELSE result (not covered in the conditions)
+END (you can use END AS nameofthecolumn)
+  
 ## SELECT IN SELECT (subquery)
 
 ```sql
@@ -239,4 +272,4 @@ The expression "common columns" is not correct. We need to use **primary keys** 
 
 In our example the primary key for the table game is the game.id and for goal is the goal.id (details of the table in the SQLZOO exercises).
 
-ADD SELECT DISTINCT AND GROUP BY (examples in JOIN)
+Continue with MORE JOIN
