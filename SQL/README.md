@@ -107,5 +107,29 @@ WHERE year BETWEEN 2000 AND 2005
 ```
 To specify a range (of dates, quantity etc.) you can use **BETWEEN** number_1 **AND** number_2.
 
+```sql
+SELECT name,
+  year
+FROM movie
+ORDER BY year DESC
+```
+You can order the results in **ascending** (defaultor type **ASC**) and **descending** order (type **DESC**).
 
-reprendre à ORDER BY (SELECT FROM NOBEL - 13) 
+```sql
+ORDER BY year DESC,
+  name
+```
+You can add several levels of ordering by adding other columns (for name, it will order by ascending alphabetical order).
+
+Important to have in mind the orders of execution.
+
+|ORDER | CLAUSE   |
+| -----| ---------|
+| 1    | FROM     | 
+| 2    | WHERE    |     
+| 3    | GROUP BY |
+| 4    | HAVING   |
+| 5    | SELECT   |
+| 6    | ORDER BY |
+| 7    | LIMIT    |
+
