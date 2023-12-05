@@ -5,6 +5,8 @@ From SQLZOO, we can learn the basics of performing SQL queries.
 Here is the **[website](https://].net/wiki/SQL_Tutorial)** to review the exercises.
 Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQLZOO)** *(I'd recommend to try by yourself first)*.
 
+Another great ressource to train is [SQLBOT](https://sqlbolt.com/).
+
 ### What you will find on this page
 
 | FUNCTIONS                   |
@@ -20,7 +22,9 @@ Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQL
 | ORDER BY ASC/DESC           |  
 | SUM ; COUNT                 |
 | DISTINCT                    |
+| LIMIT                       |
 | CASE WHEN ELSE END          |
+| NULL                        |
 | JOIN (LEFT ; RIGHT ; INNER) |
 
 ## SELECT
@@ -189,7 +193,14 @@ FROM Customers
 GROUP BY Country
 ```
 The **GROUP BY** is mandatory when you use an aggregate function such as **SUM** or **COUNT**.
-
+```sql
+SELECT title 
+FROM movies
+ORDER BY year DESC
+LIMIT 4
+```
+**LIMIT** will limit the result from your query. 
+*It is usually used to ge top or bottom, for instance the 5 products that sold the most for a given month.*
 ```sql
 SELECT OrderID, Quantity,
 CASE
