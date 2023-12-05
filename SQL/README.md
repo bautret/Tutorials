@@ -191,12 +191,20 @@ FROM OrderDetails;
 Using **CASE WHEN** allow you to categorize the values. 
 The format is the following:
 
-CASE
-  WHEN condition1 THEN result 1
-  WHEN condition2 THEN result 2
+**CASE**
+  **WHEN** condition1 **THEN** result 1
+  **WHEN** condition2 **THEN** result 2
   ...
-  ELSE result (not covered in the conditions)
-END (you can use END AS nameofthecolumn)
+  **ELSE** result (not covered in the conditions)
+**END** (you can use END AS nameofthecolumn)
+
+```sql
+SELECT name 
+FROM teacher
+WHERE dept IS NULL
+```
+Using **NULL** let you find the missign values, or to exclude them from your query.
+
   
 ## SELECT IN SELECT (subquery)
 
@@ -263,6 +271,25 @@ JOIN game ga ON (goal.matchid = game.id)
 
 After the name of the table you can use an **alias** to avoid (no need to use **AS** for this).
 
+```sql
+SELECT teacher.name, dept.name
+FROM teacher 
+INNER JOIN dept ON (teacher.dept = dept.id)
+```
+```sql
+SELECT teacher.name, dept.name
+FROM teacher 
+LEFT JOIN dept ON (teacher.dept = dept.id)
+```
+```sql
+SELECT teacher.name, dept.name
+FROM teacher 
+RIGHT JOIN dept ON (teacher.dept = dept.id)
+```
+As seen above, the type of **JOIN** used, will lead to **different results**. *(see the output from SQLZOO website).*
+
+
+
 The expression "common columns" is not correct. We need to use **primary keys** and **foreign keys**.
 
 | KEY              | Definition                                                                     |
@@ -272,4 +299,14 @@ The expression "common columns" is not correct. We need to use **primary keys** 
 
 In our example the primary key for the table game is the game.id and for goal is the goal.id (details of the table in the SQLZOO exercises).
 
-Continue with MORE JOIN
+```sql
+SELECT actor.name 
+FROM actor 
+JOIN casting ON (actor.id = casting.actorid)
+JOIN movie ON (movie.id = casting.movieid)
+WHERE movie.title = 'Alien'
+```
+
+You can use multiple **JOINs** in the same query. Not every tables are linked together by a foreign key. 
+
+Let's take an example: You have for instance a **table1** that is **linked** to a **table 2** and a **table 3**. But **table2** and **table3** are **not linked** to each other. By **connecting** in the same query the **3 tables** you can have the information needed (e.g.: you don't need any value from the table1, but you still need to include it in the join if you want to connect values from table2 and table 3).
