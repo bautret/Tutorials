@@ -1,17 +1,27 @@
-# SQL
+# SQL BASICS
 
 From SQLZOO, we can learn the basics of performing SQL queries.
 
 Here is the **[website](https://].net/wiki/SQL_Tutorial)** to review the exercises.
-Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQLZOO)** *(I'd recommend to try by yourself first)*
+Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQLZOO)** *(I'd recommend to try by yourself first)*.
 
-QUICK SUMMARY OF NOTIONS EXPLAINED BELOW
+### What you will find on this page
 
-|FUNCTION  |
-| ---------|
-| SELECT   |
-
-*to update at the very end + add a link to the notion*
+| FUNCTIONS                   |
+| ----------------------------|
+| SELECT                      |
+| FROM                        |
+| WHERE                       |
+| IN                          |
+| AS                          |
+| LIKE %                      |
+| AND ; OR ; NOT              |
+| BETWEEN AND                 |
+| ORDER BY ASC/DESC           |  
+| SUM ; COUNT                 |
+| DISTINCT                    |
+| CASE WHEN ELSE END          |
+| JOIN (LEFT ; RIGHT ; INNER) |
 
 ## SELECT
 
@@ -20,7 +30,7 @@ SELECT *
 FROM table
 ```
 
-1. You always want to start a **SQL QUERY** with **SELECT** then the symbol * means **ALL**.
+1. You always want to start a **SQL QUERY** with **SELECT** *(the symbol * means **ALL**).*
 2. You need to get the data from a **TABLE**.
 
 ```sql
@@ -29,7 +39,9 @@ SELECT column_1,
 FROM table
 ```
 
-You don't have to select everything. You can choose the columns that are interesting to you. Each column is separated by a comma, except the last one. You don't have to go to the following line for each new element, but it adds to readability.
+You don't have to select everything. You can choose specific columns. Each column is separated by a **comma**, except the last one. 
+
+You don't have to go to the following line for each new element. However, it adds to readability.
 
 ```sql
 SELECT column_1, 
@@ -46,7 +58,7 @@ You can filter the data by using **WHERE** and add the sign **=**
 WHERE name IN ('Sweden', 'Norway', 'Denmark')
 ```
 
-When you want to filter with several **INPUTS** you use **IN** followed by parentheses and a comma to differentiate each element.
+When you want to filter with several **INPUTS**, you use **IN** followed by parentheses and a comma to differentiate each element.
 
 ```sql
 WHERE number >= 2000
@@ -63,15 +75,15 @@ SELECT name,
   population/1000000
 FROM world
 ```
-You can divide/multiply a column by a number (if the column is containing integers)
+You can **divide** or **multiply** a column by a number (if the column is containing integers).
 
 ```sql
 SELECT name,
   GDP/population AS GDP_per_capita
 FROM world
 ```
-- You can divide/multiply a column by another column.
-- You can rename a column by using **AS** and then the new_name.
+- You can **divide** or **multiply** a column by another column.
+- You can rename a column by using **AS** and then the **new_name**.
 
 ```sql
 SELECT name,
@@ -80,11 +92,11 @@ WHERE name LIKE '%United%'
 ```
 If you want to include part of a string in your filter, you can use **%**.
 
-|% position     | What for                                |
-| ------------- | --------------------------------------- |
-| %text%        | Look if the string contains the text    |
-| %text         | Look if the string starts with the text |
-| text%         | Look if the string ends with the text   |
+|% position     | What for                                 |
+| ------------- | -----------------------------------------|
+| %text%        | Look if the string contains the input    |
+| %text         | Look if the string starts with the input |
+| text%         | Look if the string ends with the input   |
 
 ```sql
 SELECT name,
@@ -105,15 +117,15 @@ SELECT name,
   population,
   area
 FROM world
-WHERE (area > 30000000 | population > 25000000) &
+WHERE (area > 30000000 & population > 25000000) &
       (area < 30000000 & population < 25000000)
 ```
-You can use several operators together.
+You can use **several operators** together.
 
 ```sql
 WHERE year BETWEEN 2000 AND 2005
 ```
-To specify a range (of dates, quantity etc.) you can use **BETWEEN** number_1 **AND** number_2.
+To specify a **range** (of dates, quantity etc.) you can use **BETWEEN** number_1 **AND** number_2.
 
 ```sql
 SELECT name,
@@ -127,9 +139,9 @@ You can order the results in **ascending** (defaultor type **ASC**) and **descen
 ORDER BY year DESC,
   name
 ```
-You can add several levels of ordering by adding other columns (for name, it will order by ascending alphabetical order).
+You can add several ordering levels by adding other columns (for name, it will be ordered by ascending alphabetical order).
 
-Important to have in mind the orders of execution.
+It is essential to have in mind the orders of execution.
 
 |ORDER | CLAUSE   |
 | -----| ---------|
@@ -145,13 +157,13 @@ Important to have in mind the orders of execution.
 ORDER BY subject IN ('economics','medicine'), subject,winner 
   name
 ```
-You can decide to set a particular value from a column as **last**. In this case, it will sort results by subject first, then winner **BUT** economics **then** medicine as **last**.
+You can set a particular value from a column as **last**. In this case, it will sort results by subject first, then winner **BUT** economics **then** medicine as **last**.
 
 ```sql
 SELECT continent, MIN(name) AS name
 FROM world
 ```
-You can select the **MIN** or **MAX** value. In case of a string it will use alphabetical orders, in case of an integer the minimum/maximum numbers. In this case you will get ALL continents, and the country names that appear first per continent.
+You can select the **MIN** or **MAX** value. *In the case of a string, it will use alphabetical orders; in the case of an integer, the minimum/maximum numbers. In this case, you will get ALL continents and the country names that appear first per continent.*
 
 ```sql
 SELECT SUM(population)
@@ -169,7 +181,7 @@ You can use **COUNT** to **COUNT** the values of a column.
 SELECT DISTINCT(Country)
 FROM world
 ```
-**DISTINCT** will remove the duplicates. In this case the country name will appear only once, without the distinct, it will retrieve all rows from the column Country.
+**DISTINCT** will remove the duplicates. *In this case the country name will appear only once, without the distinct, it will retrieve all rows from the column Country.*
 
 ```sql
 SELECT COUNT(CustomerID), Country
@@ -297,7 +309,7 @@ The expression "common columns" is not correct. We need to use **primary keys** 
 | PRIMARY KEY (PK) | Unique identifier for each record in a table                                   |
 | FOREIGN KEY (FK) | Establish a relationship between tables by referencing the PK of another table |
 
-In our example the primary key for the table game is the game.id and for goal is the goal.id (details of the table in the SQLZOO exercises).
+In our example the primary key for the table game is the game.id and for goal is the goal.id *(details of the table in the SQLZOO exercises).*
 
 ```sql
 SELECT actor.name 
@@ -309,4 +321,6 @@ WHERE movie.title = 'Alien'
 
 You can use multiple **JOINs** in the same query. Not every tables are linked together by a foreign key. 
 
-Let's take an example: You have for instance a **table1** that is **linked** to a **table 2** and a **table 3**. But **table2** and **table3** are **not linked** to each other. By **connecting** in the same query the **3 tables** you can have the information needed (e.g.: you don't need any value from the table1, but you still need to include it in the join if you want to connect values from table2 and table 3).
+*Let's take an example: You have for instance a **table1** that is **linked** to a **table 2** and a **table 3**. But **table2** and **table3** are **not linked** to each other. By **connecting** in the same query the **3 tables** you can have the information needed (e.g.: you don't need any value from the table1, but you still need to include it in the join if you want to connect values from table2 and table 3).*
+
+### That's it for the SQL basics.
