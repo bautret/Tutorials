@@ -23,6 +23,7 @@ Another great ressource to train is [SQLBOT](https://sqlbolt.com/).
 | SUM ; COUNT                 |
 | DISTINCT                    |
 | LIMIT                       |
+| OFFSET                      |
 | CASE WHEN ELSE END          |
 | NULL                        |
 | JOIN (LEFT ; RIGHT ; INNER) |
@@ -201,6 +202,17 @@ LIMIT 4
 ```
 **LIMIT** will limit the result from your query. 
 *It is usually used to ge top or bottom, for instance the 5 products that sold the most for a given month.*
+
+```sql
+SELECT title
+FROM movies
+ORDER BY title ASC
+LIMIT 5
+OFFSET 5
+```
+**OFFSET** allows you to skip x first values to start your **LIMIT** at the position needed.
+If you wanted the **11th values**, you can use a **LIMIT** of 1 and **OFFSET** of 10.
+
 ```sql
 SELECT OrderID, Quantity,
 CASE
