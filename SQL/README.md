@@ -1,5 +1,3 @@
-# This repository is focusing on my learning of **SQL**.
-
 ## CONTENT
 
 ### [SQL_BASICS](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS) <br />
