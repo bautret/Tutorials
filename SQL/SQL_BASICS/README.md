@@ -1,9 +1,6 @@
 # SQL BASICS
 
-From SQLZOO, we can learn the basics of performing SQL queries.
-
-Here is the **[website](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLZOO)** to review the exercises.
-Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQLZOO)** *(I'd recommend to try by yourself first)*.
+From [SQLZOO](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLZOO), we can learn the basics of performing SQL queries. Here are my **[solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQLZOO)** *(I'd recommend to try by yourself first)*.
 
 Another great ressource to train is [SQLBOT](https://sqlbolt.com/) and here are my [solutions](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLBOLT)
 
