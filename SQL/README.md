@@ -2,7 +2,7 @@
 
 ## This repository is focusing on my learning of **SQL**.
 
-[SQL_BASICS](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS) <br />
+### [SQL_BASICS](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS) <br />
 *Which cover the simple queries to start with SQL.* <br />
 *I used [SQLZOO](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLZOO) and [SQLBOLT](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLBOLT) to give examples.*
 
