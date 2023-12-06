@@ -18,7 +18,7 @@ Answers to [SQLBolt](https://sqlbolt.com/). Similar to SQLZOO with additional to
 [ALTERING TABLES](#ALTERING_TABLES) <br />
 [DROPPING TABLES](#DROPPING_TABLES) <br />
 
-##SELECT
+## SELECT
 ```sql
 SELECT title
 FROM movies
@@ -78,7 +78,7 @@ ORDER BY population DESC
 LIMIT 2
 OFFSET 2
 ```
-##CONSTRAINTS
+## CONSTRAINTS
 ```sql
 SELECT * 
 FROM movies
@@ -114,7 +114,7 @@ SELECT *
 FROM movies
 WHERE title LIKE '%WALL%'
 ```
-##FILTERING AND SORTING
+## FILTERING AND SORTING
 ```sql
 SELECT DISTINCT(director) 
 FROM movies
@@ -139,7 +139,7 @@ ORDER BY title ASC
 LIMIT 5
 OFFSET 5
 ```
-##JOINS
+## JOINS
 ```sql
 SELECT m.title, 
     bo.domestic_sales,
@@ -161,7 +161,7 @@ FROM movies m
 JOIN boxoffice bo ON (m.id = bo.movie_id)
 ORDER BY bo.rating DESC
 ```
-##OUTER JOINS
+## OUTER JOINS
 ```sql
 SELECT DISTINCT building 
 FROM employees
@@ -176,7 +176,7 @@ SELECT DISTINCT(building_name),
 FROM buildings 
 LEFT JOIN employees ON (building_name = building)
 ```
-##NULLS
+## NULLS
 ```sql
 SELECT name,
     role
@@ -189,7 +189,7 @@ FROM buildings b
 LEFT JOIN employees e ON (b.building_name = e.building)
 WHERE e.role IS NULL
 ```
-##EXPRESSIONS
+## EXPRESSIONS
 ```sql
 SELECT m.title,
     ROUND((bo.domestic_sales + bo.international_sales) / 1000000,0) AS total_Sales_Millions
@@ -208,7 +208,7 @@ SELECT title,
 FROM movies
 WHERE year % 2 == 0
 ```
-##AGGEGATES
+## AGGEGATES
 
 ```sql
 SELECT name,
@@ -245,7 +245,7 @@ SELECT role,
 FROM employees
 WHERE role = 'Engineer'
 ```
-##ORDER OF EXECUTION
+## ORDER OF EXECUTION
 ```sql
 SELECT m.director,
 count(m.title)
@@ -259,7 +259,7 @@ FROM movies m
 JOIN boxoffice bo ON (m.id = bo.movie_id)
 GROUP BY director
 ```
-##INSERT ROWS
+## INSERT ROWS
 ```sql
 INSERT INTO movies 
 VALUES (4, 
@@ -275,7 +275,7 @@ VALUES (4,
     340000, 
     270000)
 ```
-##UPDATE ROWS
+## UPDATE ROWS
 ```sql
 UPDATE movies
 SET director = "John Lasseter"
@@ -292,7 +292,7 @@ SET director = "Lee Unkrich",
     title = "Toy Story 3"
 WHERE id = 11
 ```
-##DELETE ROWS
+## DELETE ROWS
 ```sql
 DELETE FROM Movies
 WHERE year < 2005
@@ -301,14 +301,14 @@ WHERE year < 2005
 DELETE FROM Movies
 WHERE director = "Andrew Stanton"
 ```
-##CREATING TABLES
+## CREATING TABLES
 ```sql
 CREATE TABLE Database (
     Name TEXT,
     Version FLOAT,
     Download_count INTEGER)
 ```
-##ALTERING TABLES
+## ALTERING TABLES
 ```sql
 ALTER TABLE Movies
 ADD Aspect_ratio FLOAT
@@ -318,7 +318,7 @@ ALTER TABLE Movies
 ADD Language TEXT
     DEFAULT English
 ```
-##DROPPING TABLES
+## DROPPING TABLES
 ```sql
 DROP TABLE movies
 ```
