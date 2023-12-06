@@ -26,12 +26,12 @@ Another great ressource to train is [SQLBOT](https://sqlbolt.com/) and here are 
 | OFFSET                      |
 | CASE WHEN ELSE END          |
 | NULL                        |
-| JOIN (LEFT ; RIGHT ; INNER) |
-| JOIN (LEFT ; RIGHT ; INNER) |
-| JOIN (LEFT ; RIGHT ; INNER) |
-| JOIN (LEFT ; RIGHT ; INNER) |
-| JOIN (LEFT ; RIGHT ; INNER) |
-| JOIN (LEFT ; RIGHT ; INNER) |
+| UPDATE                      |
+| DELETE                      |
+| CREATE TABLE                |
+| DATA TYPES                  |
+| ALTER TABLE                 |
+| DROP TABLE                  |
 
 ## SELECT
 
@@ -358,21 +358,21 @@ UPDATE movies
 SET director = "John Lasseter"
 WHERE id = 2
 ```
-You can *UPDATE* a row or multiple rows with a new value using *UPDATE* *SET* (and you would find *WHERE* useful to target the value you want to update).
+You can **UPDATE** a row or multiple rows with a new value using **UPDATE** **SET** (and you would find **WHERE** useful to target the value you want to update).
 ```sql
 DELETE FROM Movies
 WHERE year < 2005
 ```
-You can *DELETE* a row or multiple rows by using *DELETE* and the cluse *WHERE*.
+You can **DELETE** a row or multiple rows by using **DELETE** and the cluse **WHERE**.
 ```sql
 CREATE TABLE Database (
     Name TEXT,
     Version FLOAT,
     Download_count INTEGER)
 ```
-You can create a new table, by using *CREATE TABLE* name_of_your_table and specifying the *name_of_your_column* and its *data_type*
+You can create a new table, by using **CREATE TABLE** name_of_your_table and specifying the **name_of_your_column** and its **data_type**
 
-Speaking of data type here are some you will find in BigQuery *(have a look to MySQL, MS Access etc. depending on the data warehouse you use).*
+Speaking of **DATA TYPES** here are some you will find in BigQuery *(have a look to MySQL, MS Access etc. depending on the data warehouse you use).*
 
 | DATA TYPES |
 | -----------|
@@ -393,13 +393,10 @@ source: [Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard
 ALTER TABLE Movies
 ADD Aspect_ratio FLOAT
 ```
-You can **ALTER** a table by adding new columns.
-```sql
-
-```
+You can **ALTER** a table by adding new columns
 ```sql
 DROP TABLE movies
 ```
-You can *DELETE* an entire table (be very careful with the *DELETE*, if could remove the entire table).
+You can **DELETE** an entire table (be very careful with the **DELETE**, if could remove the entire table).
 
 ### That's it for the SQL basics.
