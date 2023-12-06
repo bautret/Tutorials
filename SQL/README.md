@@ -3,7 +3,7 @@
 ## CONTENT
 
 ### [SQL_BASICS](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS) <br />
-*Which cover the simple queries to start with SQL.* <br />
+*Which cover the simple queries to start with SQL.* 
 *I used [SQLZOO](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLZOO) and [SQLBOLT](https://github.com/bautret/Tutorials/tree/main/SQL/SQL_BASICS/SQLBOLT) to give examples.*
 
 **Other useful ressources** <br />
