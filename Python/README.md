@@ -1,5 +1,10 @@
 # work in progress
 
+[Variables and condition](#Variables-and-condition)  <br />
+[Lists](#Lists)  <br />
+[Dictionaries](#Dictionaries)  <br />
+
+
 ## Python Basics
 
 ### Variables and conditions
