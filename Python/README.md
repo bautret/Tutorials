@@ -116,3 +116,62 @@ print(d["C"])
 ```python
 d["D"] = 8
 ```
+
+**Print the data type of a key value**
+
+```python
+print(type(paris_city["location"]))
+```
+
+**Get the value of a subkey**
+
+```python
+paris_city["area"]["prefecture_level"]
+```
+
+**Get a specific element of a key**
+
+```python
+paris_city["location"][1]
+```
+
+## Pandas
+
+**To import the library**
+
+```python
+import pandas as pd
+```
+
+**Create a dataframe from a dataframe**
+
+```python
+df_E_B = df[["E","B"]]
+print(df_E_B)
+```
+
+**Only keep specific rows and columns**
+
+```python
+df_1_3_B_C_D = df.loc[1:3,["B","C","D"]]
+print(df_1_3_B_C_D)
+```
+
+**Filter a dataframe** *(here only the rows that have a value greater than 8 in the column B)*
+
+```python
+df[df["B"] >= 8]
+```
+
+**Filter a dataframe with multiple conditions**
+
+```python
+df[(df["B"]>=8) & (df["D"]=="a")]
+```
+
+**Calculate the average of columns** *(axis = 0 will give you the average per column and axis = 1 per row)*
+
+```python
+df[["A", "B"]].mean(axis=0)
+```
+
