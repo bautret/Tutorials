@@ -3,7 +3,7 @@
 [Variables and condition](#Variables-and-condition)  <br />
 [Lists](#Lists)  <br />
 [Dictionaries](#Dictionaries)  <br />
-
+[Pandas](#Pandas)  <br />
 
 ## Python Basics
 
