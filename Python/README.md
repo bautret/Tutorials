@@ -100,7 +100,7 @@ d = {
 ```
 
 **Display dictionary's keys**
-
+```
 ```python
 print(d.keys())
 ```
@@ -175,3 +175,81 @@ df[(df["B"]>=8) & (df["D"]=="a")]
 df[["A", "B"]].mean(axis=0)
 ```
 
+**Upload a csv file** *(make sure the file is located in the same directory than you notebook online or locally)*
+
+```python
+import pandas as pd
+df_facebook = pd.read_csv("acquisition_facebook_adds.csv")
+```
+
+**Knows the number of columns and rows**
+
+```python
+df_facebook.shape
+```
+
+**Convert a dataframe to a csv file**
+
+```python
+df_facebook_instagram_20190113.to_csv("acquisition_facebook_instagram_20190113.csv")
+```
+
+**Convert a column to datetime**
+
+```python
+df_facebook["date"] = pd.to_datetime(df_facebook["date"], format="%Y-%m-%d")
+```
+
+**Getting the min and max value**
+
+```python
+print(df_facebook["date"].min())
+print(df_facebook["date"].max())
+```
+
+**Getting the sum value**
+
+```python
+print(df_facebook["spend"].sum())
+```
+
+**Group by in addition to aggreagation function (e.g.: sum)**
+
+```python
+df_facebook_daily = df_facebook.groupby("date")["spend"].sum()
+print(df_facebook_daily)
+```
+
+**Group by several criteria**
+
+```python
+df_facebook_daily_2 = df_facebook.groupby(["date","channel"])["spend"].sum()
+print(df_facebook_daily_2)
+```
+
+*an alternative way would be the following*
+
+```python
+cols_to_group_on = ["date", "channel"]
+df_facebook_channel_daily = df_facebook.groupby(cols_to_group_on, as_index=False)["spend"].sum()
+df_facebook_channel_daily
+```
+
+**Join two DataFrames together**
+
+```python
+df_facebook = pd.merge(df_facebook, df_taxes, on="channel", how="left")
+df_facebook
+```
+
+**Create a pivot table**
+
+```python
+data = df_facebook
+values = "real_spend"
+index = ["date"]
+columns = ["channel"]
+aggfunc = "sum"
+df_facebook_pivot = pd.pivot_table(data, values, index, columns, aggfunc).reset_index()
+df_facebook_pivot
+```
