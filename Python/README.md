@@ -188,6 +188,12 @@ df_facebook = pd.read_csv("acquisition_facebook_adds.csv")
 df_facebook.shape
 ```
 
+**Getting the name of your columns**
+
+```python
+print(list(df_order))
+```
+
 **Convert a dataframe to a csv file**
 
 ```python
@@ -213,7 +219,23 @@ print(df_facebook["date"].max())
 print(df_facebook["spend"].sum())
 ```
 
-**Group by in addition to aggreagation function (e.g.: sum)**
+**Getting the mean value**
+
+```python
+print(df_order.groupby("id_store")["m_cached_price"].mean())
+```
+
+**Getting unique values of a column**
+```python
+print(df_order["dim_status"].unique())
+```
+
+**Count the number of unique values in a column**
+```python
+print(len(df_order["id_store"].unique()))
+```
+
+**Group by in addition to aggregation function (e.g.: sum, count etc.)**
 
 ```python
 df_facebook_daily = df_facebook.groupby("date")["spend"].sum()
@@ -235,6 +257,24 @@ df_facebook_channel_daily = df_facebook.groupby(cols_to_group_on, as_index=False
 df_facebook_channel_daily
 ```
 
+**Getting the proportion of a value**
+
+```python
+df_order["dim_status"].value_counts(normalize=True)
+```
+
+**Getting results in the ascending order**
+
+```python
+print(df_order.groupby("id_store")["id_order"].count().sort_values(ascending=False))
+```
+
+**Add a new column in your dataframe**
+
+```python
+df_order["price_per_customer"] = df_order["m_cached_payed"] / df_order["m_nb_customer"]
+```
+
 **Join two DataFrames together**
 
 ```python
@@ -253,3 +293,18 @@ aggfunc = "sum"
 df_facebook_pivot = pd.pivot_table(data, values, index, columns, aggfunc).reset_index()
 df_facebook_pivot
 ```
+
+## Cleaning
+
+**Replace a value in a column by another one**
+
+```python
+df_order.loc[df_order.m_nb_customer == 0, "m_nb_customer"] = 1
+```
+
+**Delete rows that don't meet a certain condition**
+
+```python
+df_order = df_order[df_order["m_cached_payed"] > 0]
+```
+
