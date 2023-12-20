@@ -182,6 +182,12 @@ import pandas as pd
 df_facebook = pd.read_csv("acquisition_facebook_adds.csv")
 ```
 
+*sometimes you'll get issue with the file, one reason could be how the column are separated*
+
+```python
+df_orders = pd.read_csv("gwz_orders_samples_other_format.csv", sep="\t")
+```
+
 **Knows the number of columns and rows**
 
 ```python
@@ -198,6 +204,12 @@ print(list(df_order))
 
 ```python
 df_facebook_instagram_20190113.to_csv("acquisition_facebook_instagram_20190113.csv")
+```
+
+*sometimes you'll want to modify the separator*
+
+```python
+df_orders.to_csv("gwz_orders_samples_other_format.csv", sep=",")
 ```
 
 **Convert a column to datetime**
