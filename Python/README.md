@@ -100,7 +100,6 @@ d = {
 ```
 
 **Display dictionary's keys**
-```
 ```python
 print(d.keys())
 ```
