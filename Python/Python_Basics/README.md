@@ -2,14 +2,12 @@
 
 Need to rearrange how the information is displayed
 
+[Python Basics](#Python-Basics) <br />
 [Variables and condition](#Variables-and-condition)  <br />
-[Lists](#Lists)  <br />
-[Dictionaries](#Dictionaries)  <br />
 [Pandas](#Pandas)  <br />
+[Plotly](#Plotly)  <br />
 
 ## Python Basics
-
-### Variables and conditions
 
 **Initialize a variable**
 
@@ -56,8 +54,6 @@ else:
     print("strictly lower than 5")
 ```
 
-### Lists
-
 **Create a list**
 
 ```python
@@ -88,8 +84,6 @@ l[2] = 17
 ```python
 l.append(296)
 ```
-
-### Dictionaries
 
 **Initialize a dictionary**
 
@@ -185,6 +179,18 @@ df_facebook = pd.read_csv("acquisition_facebook_adds.csv")
 
 *sometimes you'll get issue with the file, one reason could be how the column are separated*
 
+**Convert a dataframe to a csv file**
+
+```python
+df_facebook_instagram_20190113.to_csv("acquisition_facebook_instagram_20190113.csv")
+```
+
+*sometimes you'll want to modify the separator*
+
+```python
+df_orders.to_csv("gwz_orders_samples_other_format.csv", sep=",")
+```
+
 **Open a json file**
 
 ```python
@@ -209,36 +215,6 @@ with open("actors.json", "w") as f:
    json.dump(leonardo, f)
 ```
 
-**Knows the number of columns and rows**
-
-```python
-df_facebook.shape
-```
-
-**Getting the name of your columns**
-
-```python
-print(list(df_order))
-```
-
-**Convert a dataframe to a csv file**
-
-```python
-df_facebook_instagram_20190113.to_csv("acquisition_facebook_instagram_20190113.csv")
-```
-
-*sometimes you'll want to modify the separator*
-
-```python
-df_orders.to_csv("gwz_orders_samples_other_format.csv", sep=",")
-```
-
-**Convert a column to datetime**
-
-```python
-df_facebook["date"] = pd.to_datetime(df_facebook["date"], format="%Y-%m-%d")
-```
-
 **Open an Excel file**
 
 ```python
@@ -261,6 +237,24 @@ df_sales_restaurant_1 = pd.read_excel("restaurants_accountability.xlsx", sheet_n
 
 or alternatively you can use the name of your sheet instead of the sheet_index
 
+**Knows the number of columns and rows**
+
+```python
+df_facebook.shape
+```
+
+**Getting the name of your columns**
+
+```python
+print(list(df_order))
+```
+
+**Convert a column to datetime**
+
+```python
+df_facebook["date"] = pd.to_datetime(df_facebook["date"], format="%Y-%m-%d")
+```
+
 **Getting the min and max value**
 
 ```python
@@ -281,11 +275,13 @@ print(df_order.groupby("id_store")["m_cached_price"].mean())
 ```
 
 **Getting unique values of a column**
+
 ```python
 print(df_order["dim_status"].unique())
 ```
 
 **Count the number of unique values in a column**
+
 ```python
 print(len(df_order["id_store"].unique()))
 ```
@@ -349,8 +345,6 @@ df_facebook_pivot = pd.pivot_table(data, values, index, columns, aggfunc).reset_
 df_facebook_pivot
 ```
 
-## Cleaning
-
 **Replace a value in a column by another one**
 
 ```python
@@ -361,6 +355,38 @@ df_order.loc[df_order.m_nb_customer == 0, "m_nb_customer"] = 1
 
 ```python
 df_order = df_order[df_order["m_cached_payed"] > 0]
+```
+
+**To get basic info about a dataset**
+
+```python
+df.info()
+```
+
+*You could find this one useful too*
+
+```python
+df.describe()
+```
+
+**Convert to date and set it as an index**
+
+```python
+df["Date"] = pd.to_datetime(df["Date"], format='%Y-%m-%d')
+df = df.set_index("Date")
+```
+
+**To get the number of appearanc of a certain value**
+
+```python
+df.index.dayofweek.value_counts()
+```
+
+**To display the data within a timeframe**
+
+```python
+mask = df.index.month.isin([1, 12])
+df[mask]
 ```
 
 ## Plotly
@@ -442,38 +468,4 @@ fig.show()
 **Adding information when you pass your mouse on the date**
 ```python
 hover_data=["country"]
-```
-
-## Other to sort
-
-**To get basic info about a dataset**
-
-```python
-df.info()
-```
-
-*You could find this one useful too*
-
-```python
-df.describe()
-```
-
-**Convert to date and set it as an index**
-
-```python
-df["Date"] = pd.to_datetime(df["Date"], format='%Y-%m-%d')
-df = df.set_index("Date")
-```
-
-**To get the number of appearanc of a certain value**
-
-```python
-df.index.dayofweek.value_counts()
-```
-
-**To display the data within a timeframe**
-
-```python
-mask = df.index.month.isin([1, 12])
-df[mask]
 ```
