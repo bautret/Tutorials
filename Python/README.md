@@ -1,7 +1,7 @@
 ## CONTENT
 
 ### [PYTHON_Basics](https://github.com/bautret/Tutorials/tree/main/Python/Python_Basics) <br />
-It covers **Python, Pandas and Plotly.** <br />
+It covers **Python**, **Pandas** and **Plotly.** <br />
 ### [PYTHON_for_AI](https://github.com/bautret/Tutorials/tree/main/Python/Python_for_AI) <br />
 
 **Other useful ressources** <br />
