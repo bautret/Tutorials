@@ -361,3 +361,7 @@ df_order.loc[df_order.m_nb_customer == 0, "m_nb_customer"] = 1
 df_order = df_order[df_order["m_cached_payed"] > 0]
 ```
 
+## Plotly
+
+Good website to get to know the different type of graphs
+[data-to-viz](https://www.data-to-viz.com/#area)
