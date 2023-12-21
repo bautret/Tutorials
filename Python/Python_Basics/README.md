@@ -161,6 +161,13 @@ df[df["B"] >= 8]
 df[(df["B"]>=8) & (df["D"]=="a")]
 ```
 
+**Only display several rows**
+
+```python
+df_nba.head()
+```
+*include the number of rows you want to display like this: head(6). Don't forget you start to count by 0. By default it will display the first 5.*
+
 **Calculate the average of columns** *(axis = 0 will give you the average per column and axis = 1 per row)*
 
 ```python
