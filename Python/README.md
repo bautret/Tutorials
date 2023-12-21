@@ -1,5 +1,7 @@
 # work in progress
 
+Need to rearrange how the information is displayed
+
 [Variables and condition](#Variables-and-condition)  <br />
 [Lists](#Lists)  <br />
 [Dictionaries](#Dictionaries)  <br />
@@ -363,5 +365,115 @@ df_order = df_order[df_order["m_cached_payed"] > 0]
 
 ## Plotly
 
-Good website to get to know the different type of graphs
+Good website to get to know the different type of graphs :
 [data-to-viz](https://www.data-to-viz.com/#area)
+
+**The libraries you need**
+
+```python
+import numpy as np
+from collections import Counter
+
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+```
+
+**To create a new figure**
+
+```python
+fig = go.Figure()
+```
+
+**Create a graphical object of type Scatter**
+
+```python
+first_line_object = go.Scatter(x=[2, 3], y=[7, 8], mode="lines")
+```
+
+**Show your graph**
+
+```python
+fig.add_trace(first_line_object)
+fig.show()
+```
+
+**Another way to do all the above**
+
+```python
+fig = px.line(x=[2, 3], y=[7, 8], markers=True)
+fig.show()
+```
+
+**For a bar graph**
+
+```python
+fig = px.bar(df[df.country == "France"],
+             x="year",
+             y="lifeExp",
+             title="LifeExpectancy over time in France")
+fig.show()
+```
+
+**To modify it to a line graph**
+
+```python
+fig = px.line(df[df.country == "France"],
+             x="year",
+             y="lifeExp",
+             title="LifeExpectancy over time in France")
+fig.show()
+```
+
+**Another example of graph**
+
+```python
+fig = px.scatter(df[df.year==2007],
+                 x="gdpPercap",
+                 y="lifeExp",
+                 color="continent",
+                 size="pop",
+                 size_max=60,
+                 title="lifeExp vs gdpPercap")
+fig.show()
+```
+
+**Adding information when you pass your mouse on the date**
+```python
+hover_data=["country"]
+```
+
+## Other to sort
+
+**To get basic info about a dataset**
+
+```python
+df.info()
+```
+
+*You could find this one useful too*
+
+```python
+df.describe()
+```
+
+**Convert to date and set it as an index**
+
+```python
+df["Date"] = pd.to_datetime(df["Date"], format='%Y-%m-%d')
+df = df.set_index("Date")
+```
+
+**To get the number of appearanc of a certain value**
+
+```python
+df.index.dayofweek.value_counts()
+```
+
+**To display the data within a timeframe**
+
+```python
+mask = df.index.month.isin([1, 12])
+df[mask]
+```
