@@ -1,6 +1,4 @@
-# work in progress
-
-Need to rearrange how the information is displayed
+# Python Basics
 
 [Python](#Python-Basics) <br />
 [Pandas](#Pandas)  <br />
