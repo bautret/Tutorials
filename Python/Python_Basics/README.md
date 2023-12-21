@@ -2,8 +2,7 @@
 
 Need to rearrange how the information is displayed
 
-[Python Basics](#Python-Basics) <br />
-[Variables and condition](#Variables-and-condition)  <br />
+[Python](#Python-Basics) <br />
 [Pandas](#Pandas)  <br />
 [Plotly](#Plotly)  <br />
 
