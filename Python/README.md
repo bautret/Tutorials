@@ -1,6 +1,6 @@
 ## CONTENT
 
-### [PYTHON_BASICS](https://github.com/bautret/Tutorials/tree/main/Python/Python_Basics) <br />
+### [PYTHON_Basics](https://github.com/bautret/Tutorials/tree/main/Python/Python_Basics) <br />
 ### [PYTHON_for_AI](https://github.com/bautret/Tutorials/tree/main/Python/Python_for_AI) <br />
 
 **Other useful ressources** <br />
