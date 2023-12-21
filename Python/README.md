@@ -184,8 +184,28 @@ df_facebook = pd.read_csv("acquisition_facebook_adds.csv")
 
 *sometimes you'll get issue with the file, one reason could be how the column are separated*
 
+**Open a json file**
+
 ```python
-df_orders = pd.read_csv("gwz_orders_samples_other_format.csv", sep="\t")
+import json
+
+with open("actors.json", "w") as f:
+   json.dump(d, f)
+```
+
+The "w" indicates the write mode. As f: means we assign the json opening to the variable f. 
+json.dum(d, f) will save the contents of the dictionary d to a JSON file f.
+
+**Add new values to the json file**
+
+```python
+with open("actors.json", "r") as f:
+   leonardo = json.load(f)
+
+leonardo["nationality"] = "US"
+
+with open("actors.json", "w") as f:
+   json.dump(leonardo, f)
 ```
 
 **Knows the number of columns and rows**
@@ -217,6 +237,28 @@ df_orders.to_csv("gwz_orders_samples_other_format.csv", sep=",")
 ```python
 df_facebook["date"] = pd.to_datetime(df_facebook["date"], format="%Y-%m-%d")
 ```
+
+**Open an Excel file**
+
+```python
+df_sales_restaurant_1 = pd.read_excel("restaurants_accountability.xlsx")
+```
+*It will automatically open the first sheet of the file.*
+
+To open all sheets
+
+```python
+df_sales_restaurant_1 = pd.read_excel("restaurants_accountability.xlsx", None)
+```
+
+*Top open a specific sheet*
+
+```python
+sheet_index = 1
+df_sales_restaurant_1 = pd.read_excel("restaurants_accountability.xlsx", sheet_name = sheet_index)
+```
+
+or alternatively you can use the name of your sheet instead of the sheet_index
 
 **Getting the min and max value**
 
